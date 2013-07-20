@@ -7,6 +7,7 @@
 //
 
 #import "TopPlacesTests.h"
+#import "FlickrFetcher.h"
 
 @implementation TopPlacesTests
 
@@ -26,6 +27,7 @@
 
 - (void)testExample
 {
+    NSLog(@"%@",[FlickrFetcher topPlaces]);
     STFail(@"Unit tests are not implemented yet in TopPlacesTests");
 }
 

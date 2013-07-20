@@ -28,6 +28,7 @@
 		DE91B4F7179B118600F1E4A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE91B4C7179B118600F1E4A5 /* Foundation.framework */; };
 		DE91B4FF179B118600F1E4A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE91B4FD179B118600F1E4A5 /* InfoPlist.strings */; };
 		DE91B502179B118600F1E4A5 /* TopPlacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE91B501179B118600F1E4A5 /* TopPlacesTests.m */; };
+		DE91B5E1179B12C200F1E4A5 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DE91B5E0179B12C200F1E4A5 /* FlickrFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,9 @@
 		DE91B4FE179B118600F1E4A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE91B500179B118600F1E4A5 /* TopPlacesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopPlacesTests.h; sourceTree = "<group>"; };
 		DE91B501179B118600F1E4A5 /* TopPlacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopPlacesTests.m; sourceTree = "<group>"; };
+		DE91B5DE179B12C200F1E4A5 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		DE91B5DF179B12C200F1E4A5 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		DE91B5E0179B12C200F1E4A5 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,9 @@
 		DE91B4CB179B118600F1E4A5 /* TopPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				DE91B5DE179B12C200F1E4A5 /* FlickrAPIKey.h */,
+				DE91B5DF179B12C200F1E4A5 /* FlickrFetcher.h */,
+				DE91B5E0179B12C200F1E4A5 /* FlickrFetcher.m */,
 				DE91B4D4179B118600F1E4A5 /* AppDelegate.h */,
 				DE91B4D5179B118600F1E4A5 /* AppDelegate.m */,
 				DE91B4DD179B118600F1E4A5 /* MainStoryboard.storyboard */,
@@ -295,6 +302,7 @@
 				DE91B4D6179B118600F1E4A5 /* AppDelegate.m in Sources */,
 				DE91B4E2179B118600F1E4A5 /* FirstViewController.m in Sources */,
 				DE91B4E9179B118600F1E4A5 /* SecondViewController.m in Sources */,
+				DE91B5E1179B12C200F1E4A5 /* FlickrFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
