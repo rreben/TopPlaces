@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE1093B8179B204100728762 /* TopPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1093B7179B204100728762 /* TopPlacesTableViewController.m */; };
 		DE91B4C6179B118600F1E4A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE91B4C5179B118600F1E4A5 /* UIKit.framework */; };
 		DE91B4C8179B118600F1E4A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE91B4C7179B118600F1E4A5 /* Foundation.framework */; };
 		DE91B4CA179B118600F1E4A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE91B4C9179B118600F1E4A5 /* CoreGraphics.framework */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE1093B6179B204100728762 /* TopPlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPlacesTableViewController.h; sourceTree = SOURCE_ROOT; };
+		DE1093B7179B204100728762 /* TopPlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPlacesTableViewController.m; sourceTree = SOURCE_ROOT; };
 		DE91B4C2179B118600F1E4A5 /* TopPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE91B4C5179B118600F1E4A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE91B4C7179B118600F1E4A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,6 +135,8 @@
 		DE91B4CB179B118600F1E4A5 /* TopPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				DE1093B6179B204100728762 /* TopPlacesTableViewController.h */,
+				DE1093B7179B204100728762 /* TopPlacesTableViewController.m */,
 				DE91B5DE179B12C200F1E4A5 /* FlickrAPIKey.h */,
 				DE91B5DF179B12C200F1E4A5 /* FlickrFetcher.h */,
 				DE91B5E0179B12C200F1E4A5 /* FlickrFetcher.m */,
@@ -303,6 +308,7 @@
 				DE91B4E2179B118600F1E4A5 /* FirstViewController.m in Sources */,
 				DE91B4E9179B118600F1E4A5 /* SecondViewController.m in Sources */,
 				DE91B5E1179B12C200F1E4A5 /* FlickrFetcher.m in Sources */,
+				DE1093B8179B204100728762 /* TopPlacesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +489,7 @@
 				DE91B507179B118600F1E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE91B508179B118600F1E4A5 /* Build configuration list for PBXNativeTarget "TopPlacesTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +498,7 @@
 				DE91B50A179B118600F1E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
