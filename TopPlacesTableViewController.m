@@ -29,7 +29,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.topPlaces = [FlickrFetcher topPlaces];
+   // [self.topPlaces sortedArrayUsingComparator:<#^NSComparisonResult(id obj1, id obj2)cmptr#>]
+    self.topPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^(id obj1, id obj2){
+        NSDictionary * dict1, *dict2;
+        dict1 = obj1;
+        dict2 = obj2;
+        return [[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]];
+
+//        if ([[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]) {
+//            return (NSComparisonResult)NSOrderedDescending;
+//        }
+//        
+//        if ([dict1 valueForKeyPath:@"woe_name"] < [dict2 valueForKeyPath:@"woe_name"]) {
+//            return (NSComparisonResult)NSOrderedAscending;
+//        }
+//        
+//        return (NSComparisonResult)NSOrderedSame;
+    }];
+
     
     //[self.tableView setDelegate:self];
 
@@ -68,6 +85,7 @@
     }
     NSDictionary * dict = [self.topPlaces objectAtIndex:indexPath.row];
     cell.textLabel.text = [dict valueForKeyPath:@"woe_name"];
+    cell.detailTextLabel.text = [dict valueForKeyPath:@"_content"];
     
     return cell;
 }
