@@ -1,21 +1,20 @@
 //
-//  TopPlacesTableViewController.m
+//  RecentsTableViewController.m
 //  TopPlaces
 //
-//  Created by Rupert Rebentisch on 20.07.13.
+//  Created by Rupert Rebentisch on 24.08.13.
 //  Copyright (c) 2013 Rupert Rebentisch. All rights reserved.
 //
 
-#import "TopPlacesTableViewController.h"
+#import "RecentsTableViewController.h"
 #import "FlickrFetcher.h"
 
-@interface TopPlacesTableViewController ()
-@property NSArray * topPlaces;
+@interface RecentsTableViewController ()
+@property NSArray * recents;
 @end
 
-@implementation TopPlacesTableViewController
-
-@synthesize topPlaces = _topPlaces;
+@implementation RecentsTableViewController
+@synthesize recents = _recents;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,27 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   // [self.topPlaces sortedArrayUsingComparator:<#^NSComparisonResult(id obj1, id obj2)cmptr#>]
-    self.topPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^(id obj1, id obj2){
-        NSDictionary * dict1, *dict2;
-        dict1 = obj1;
-        dict2 = obj2;
-        return [[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]];
-//        return [[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]];
-
-//        if ([[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]) {
-//            return (NSComparisonResult)NSOrderedDescending;
-//        }
-//        
-//        if ([dict1 valueForKeyPath:@"woe_name"] < [dict2 valueForKeyPath:@"woe_name"]) {
-//            return (NSComparisonResult)NSOrderedAscending;
-//        }
-//        
-//        return (NSComparisonResult)NSOrderedSame;
-    }];
-
-    
-    //[self.tableView setDelegate:self];
+    self.recents = [FlickrFetcher recentGeoreferencedPhotos];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,27 +45,22 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 0;
-//}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return 5;
-    return [[FlickrFetcher topPlaces] count];
+    // Return the number of rows in the section.
+    return self.recents.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"TopPlaceCell";
+    static NSString *CellIdentifier = @"RecentsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TopPlaceCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"RecentsCell"];
     }
-    NSDictionary * dict = [self.topPlaces objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dict valueForKeyPath:@"woe_name"];
-    cell.detailTextLabel.text = [dict valueForKeyPath:@"_content"];
+    NSDictionary * dict = [self.recents objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dict valueForKeyPath:@"ownername"];
+    cell.detailTextLabel.text = [dict valueForKeyPath:@"title"];
     
     return cell;
 }
