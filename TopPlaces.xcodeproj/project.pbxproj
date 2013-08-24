@@ -18,7 +18,6 @@
 		DE91B4DA179B118600F1E4A5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE91B4D9179B118600F1E4A5 /* Default@2x.png */; };
 		DE91B4DC179B118600F1E4A5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE91B4DB179B118600F1E4A5 /* Default-568h@2x.png */; };
 		DE91B4DF179B118600F1E4A5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE91B4DD179B118600F1E4A5 /* MainStoryboard.storyboard */; };
-		DE91B4E2179B118600F1E4A5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE91B4E1179B118600F1E4A5 /* FirstViewController.m */; };
 		DE91B4E4179B118600F1E4A5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = DE91B4E3179B118600F1E4A5 /* first.png */; };
 		DE91B4E6179B118600F1E4A5 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE91B4E5179B118600F1E4A5 /* first@2x.png */; };
 		DE91B4EB179B118600F1E4A5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = DE91B4EA179B118600F1E4A5 /* second.png */; };
@@ -59,8 +58,6 @@
 		DE91B4D9179B118600F1E4A5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DE91B4DB179B118600F1E4A5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DE91B4DE179B118600F1E4A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		DE91B4E0179B118600F1E4A5 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		DE91B4E1179B118600F1E4A5 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		DE91B4E3179B118600F1E4A5 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		DE91B4E5179B118600F1E4A5 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		DE91B4EA179B118600F1E4A5 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
@@ -145,8 +142,6 @@
 				DE91B4DD179B118600F1E4A5 /* MainStoryboard.storyboard */,
 				DEC724D617C8CB73005440EB /* RecentsTableViewController.h */,
 				DEC724D717C8CB73005440EB /* RecentsTableViewController.m */,
-				DE91B4E0179B118600F1E4A5 /* FirstViewController.h */,
-				DE91B4E1179B118600F1E4A5 /* FirstViewController.m */,
 				DE91B4E3179B118600F1E4A5 /* first.png */,
 				DE91B4E5179B118600F1E4A5 /* first@2x.png */,
 				DE91B4EA179B118600F1E4A5 /* second.png */,
@@ -305,7 +300,6 @@
 			files = (
 				DE91B4D2179B118600F1E4A5 /* main.m in Sources */,
 				DE91B4D6179B118600F1E4A5 /* AppDelegate.m in Sources */,
-				DE91B4E2179B118600F1E4A5 /* FirstViewController.m in Sources */,
 				DE91B5E1179B12C200F1E4A5 /* FlickrFetcher.m in Sources */,
 				DE1093B8179B204100728762 /* TopPlacesTableViewController.m in Sources */,
 				DEC724D817C8CB73005440EB /* RecentsTableViewController.m in Sources */,
