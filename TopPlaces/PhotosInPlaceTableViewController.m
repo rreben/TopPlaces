@@ -26,11 +26,13 @@
     return self;
 }
 
+#define _maxResults 50
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setTitle:[self.place valueForKeyPath:@"woe_name"]];
-    self.photos = [FlickrFetcher photosInPlace:self.place maxResults:50];
+    self.photos = [FlickrFetcher photosInPlace:self.place maxResults:_maxResults];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
