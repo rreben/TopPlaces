@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotosInPlaceTableViewController : UITableViewController
-
+@property NSDictionary * place;
 @end

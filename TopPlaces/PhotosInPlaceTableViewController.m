@@ -7,12 +7,15 @@
 //
 
 #import "PhotosInPlaceTableViewController.h"
+#import "FlickrFetcher.h"
 
 @interface PhotosInPlaceTableViewController ()
-
+@property NSArray * photos;
 @end
 
 @implementation PhotosInPlaceTableViewController
+@synthesize photos = _photos;
+@synthesize place = _place;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:[self.place valueForKeyPath:@"woe_name"]];
+    self.photos = [FlickrFetcher photosInPlace:self.place maxResults:50];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,26 +47,29 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"PhotoInPlaceCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"PhotoInPlaceCell"];
+    }
+    NSDictionary * dict = [self.photos objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dict valueForKeyPath:@"ownername"];
+    cell.detailTextLabel.text = [dict valueForKeyPath:@"title"];
     
     return cell;
 }

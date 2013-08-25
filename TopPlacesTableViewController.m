@@ -8,6 +8,7 @@
 
 #import "TopPlacesTableViewController.h"
 #import "FlickrFetcher.h"
+#import "PhotosInPlaceTableViewController.h"
 
 @interface TopPlacesTableViewController ()
 @property NSArray * topPlaces;
@@ -68,7 +69,8 @@
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     NSDictionary * dict = [self.topPlaces objectAtIndex:indexPath.row];
-    [segue.destinationViewController setTitle:[dict valueForKeyPath:@"woe_name"]];
+    PhotosInPlaceTableViewController * piptvc = segue.destinationViewController;
+    piptvc.place = dict;
 }
 
 #pragma mark - Table view data source
