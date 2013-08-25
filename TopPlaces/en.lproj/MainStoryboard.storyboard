@@ -15,13 +15,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ekn-CD-wOT" kind="relationship" relationship="viewControllers" id="hHq-XU-FGo"/>
                         <segue destination="cZW-94-klA" kind="relationship" relationship="viewControllers" id="uwE-XI-lva"/>
+                        <segue destination="hTJ-kF-4aY" kind="relationship" relationship="viewControllers" id="B8s-7O-qvU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="-168" y="-24"/>
         </scene>
         <!--Recents Table View Controller - Recents-->
         <scene sceneID="wvU-JH-gZn">
@@ -66,12 +66,28 @@
             </objects>
             <point key="canvasLocation" x="660" y="525"/>
         </scene>
+        <!--Navigation Controller - Top Places-->
+        <scene sceneID="TNN-kE-JLh">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="hTJ-kF-4aY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Top Places" id="YRW-bL-Sy7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QJG-gr-h9P">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ekn-CD-wOT" kind="relationship" relationship="rootViewController" id="lbS-8H-qRf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="873-5Q-yRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="-415"/>
+        </scene>
         <!--Table View Controller - Photos from place-->
         <scene sceneID="OPh-oA-0yv">
             <objects>
                 <tableViewController title="Photos from place" id="OmF-bu-35w" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Dph-uK-bp8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -94,14 +110,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDN-KZ-bW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1107" y="-147"/>
+            <point key="canvasLocation" x="1221" y="-431"/>
         </scene>
         <!--Top Places Table View Controller - Top Places-->
         <scene sceneID="7xM-eI-JcH">
             <objects>
                 <tableViewController title="Top Places" id="ekn-CD-wOT" customClass="TopPlacesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="urE-bo-3f6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -130,20 +146,21 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="OmF-bu-35w" kind="push" id="tYr-Oc-Wgm"/>
+                                    <segue destination="OmF-bu-35w" kind="push" id="Znh-3U-xS5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Top Places" id="pZf-ge-VWP"/>
+                    <navigationItem key="navigationItem" title="Top Places" id="Gl1-CW-h14"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="sMm-Fh-Ezg">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPt-c4-pCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="-154"/>
+            <point key="canvasLocation" x="849" y="-424"/>
         </scene>
     </scenes>
     <classes>
