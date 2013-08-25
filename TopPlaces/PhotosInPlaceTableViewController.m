@@ -1,21 +1,18 @@
 //
-//  TopPlacesTableViewController.m
+//  PhotosInPlaceTableViewController.m
 //  TopPlaces
 //
-//  Created by Rupert Rebentisch on 20.07.13.
+//  Created by Rupert Rebentisch on 25.08.13.
 //  Copyright (c) 2013 Rupert Rebentisch. All rights reserved.
 //
 
-#import "TopPlacesTableViewController.h"
-#import "FlickrFetcher.h"
+#import "PhotosInPlaceTableViewController.h"
 
-@interface TopPlacesTableViewController ()
-@property NSArray * topPlaces;
+@interface PhotosInPlaceTableViewController ()
+
 @end
 
-@implementation TopPlacesTableViewController
-
-@synthesize topPlaces = _topPlaces;
+@implementation PhotosInPlaceTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,27 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   // [self.topPlaces sortedArrayUsingComparator:<#^NSComparisonResult(id obj1, id obj2)cmptr#>]
-    self.topPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^(id obj1, id obj2){
-        NSDictionary * dict1, *dict2;
-        dict1 = obj1;
-        dict2 = obj2;
-        return [[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]];
-//        return [[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]];
-
-//        if ([[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]) {
-//            return (NSComparisonResult)NSOrderedDescending;
-//        }
-//        
-//        if ([dict1 valueForKeyPath:@"woe_name"] < [dict2 valueForKeyPath:@"woe_name"]) {
-//            return (NSComparisonResult)NSOrderedAscending;
-//        }
-//        
-//        return (NSComparisonResult)NSOrderedSame;
-    }];
-
-    
-    //[self.tableView setDelegate:self];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -64,36 +40,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    NSDictionary * dict = [self.topPlaces objectAtIndex:indexPath.row];
-    [segue.destinationViewController setTitle:[dict valueForKeyPath:@"woe_name"]];
-}
-
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 0;
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return 5;
-    return [[FlickrFetcher topPlaces] count];
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"TopPlaceCell";
+    static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TopPlaceCell"];
-    }
-    NSDictionary * dict = [self.topPlaces objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dict valueForKeyPath:@"woe_name"];
-    cell.detailTextLabel.text = [dict valueForKeyPath:@"_content"];
+    
+    // Configure the cell...
     
     return cell;
 }

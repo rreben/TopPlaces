@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="449" y="-415"/>
         </scene>
-        <!--Table View Controller - Photos from place-->
+        <!--Photos In Place Table View Controller - Photos from place-->
         <scene sceneID="OPh-oA-0yv">
             <objects>
-                <tableViewController title="Photos from place" id="OmF-bu-35w" sceneMemberID="viewController">
+                <tableViewController title="Photos from place" id="OmF-bu-35w" customClass="PhotosInPlaceTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Dph-uK-bp8">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,6 +164,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="PhotosInPlaceTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosInPlaceTableViewController.h"/>
+        </class>
         <class className="RecentsTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentsTableViewController.h"/>
         </class>
