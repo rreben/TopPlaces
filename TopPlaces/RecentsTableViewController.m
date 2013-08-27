@@ -8,6 +8,7 @@
 
 #import "RecentsTableViewController.h"
 #import "FlickrFetcher.h"
+#import "PhotoViewController.h"
 
 @interface RecentsTableViewController ()
 @property NSArray * recents;
@@ -42,6 +43,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSDictionary * dict = [self.recents objectAtIndex:indexPath.row];
+    PhotoViewController * pvc = segue.destinationViewController;
+    pvc.photo = dict;
+}
+
 
 #pragma mark - Table view data source
 

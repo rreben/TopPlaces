@@ -16,27 +16,43 @@
                     </tabBar>
                     <connections>
                         <segue destination="hTJ-kF-4aY" kind="relationship" relationship="viewControllers" id="B8s-7O-qvU"/>
-                        <segue destination="cZW-94-klA" kind="relationship" relationship="viewControllers" id="uwE-XI-lva"/>
+                        <segue destination="x6o-JR-bLB" kind="relationship" relationship="viewControllers" id="1Of-ng-7fR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-168" y="-24"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="rSI-Il-ZfY">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="x6o-JR-bLB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="HMz-Nb-bBM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YzP-5w-FHx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cZW-94-klA" kind="relationship" relationship="rootViewController" id="sun-Tc-5wH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jy8-fX-jEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="435" y="383"/>
+        </scene>
         <!--Recents Table View Controller - Recents-->
         <scene sceneID="wvU-JH-gZn">
             <objects>
                 <tableViewController title="Recents" id="cZW-94-klA" customClass="RecentsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Da3-hm-x5j">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecentsCell" textLabel="GGr-uO-bWC" detailTextLabel="eEZ-2M-ajf" style="IBUITableViewCellStyleValue1" id="VRu-aB-hDh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecentsCell" textLabel="GGr-uO-bWC" detailTextLabel="eEZ-2M-ajf" style="IBUITableViewCellStyleValue1" id="VRu-aB-hDh">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGr-uO-bWC">
@@ -52,6 +68,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="MZW-4f-TpG" kind="push" id="sAb-SK-ytm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -64,7 +83,24 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZ3-KV-pw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449" y="397"/>
+            <point key="canvasLocation" x="873" y="391"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="SMe-Qo-OYV">
+            <objects>
+                <viewController id="MZW-4f-TpG" customClass="PhotoViewController" sceneMemberID="viewController">
+                    <imageView key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="IEe-Ce-mT9">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
+                    <navigationItem key="navigationItem" id="tge-Ek-EVI"/>
+                    <connections>
+                        <outlet property="photoView" destination="IEe-Ce-mT9" id="qxY-d0-2zp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3wB-BO-awO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1299" y="383"/>
         </scene>
         <!--Navigation Controller - Top Places-->
         <scene sceneID="TNN-kE-JLh">
