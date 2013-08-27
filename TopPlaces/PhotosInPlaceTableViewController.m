@@ -8,6 +8,7 @@
 
 #import "PhotosInPlaceTableViewController.h"
 #import "FlickrFetcher.h"
+#import "PhotoViewController.h"
 
 @interface PhotosInPlaceTableViewController ()
 @property NSArray * photos;
@@ -46,6 +47,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSDictionary * dict = [self.photos objectAtIndex:indexPath.row];
+    PhotoViewController * pvc = segue.destinationViewController;
+    pvc.photo = dict;
+}
+
 
 #pragma mark - Table view data source
 
