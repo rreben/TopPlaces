@@ -76,6 +76,7 @@
 
 + (NSURL *)urlForPhoto:(NSDictionary *)photo format:(FlickrPhotoFormat)format
 {
+    NSLog(@"%@",[self urlStringForPhoto:photo format:format]);
     return [NSURL URLWithString:[self urlStringForPhoto:photo format:format]];
 }
 
