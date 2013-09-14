@@ -35,18 +35,14 @@
     UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlForPhoto]];
 //    NSLog(@"scale: %f",[self calculateScaleForImage:img]);
 //    [self.photoView setImage:img];
-    CGSize modSize = img.size;
-    double scale = [self calculateScaleForImage:img];
-    modSize.height = scale * modSize.height;
-    modSize.width = scale * modSize.width;
-    NSLog(@"%f", scale);
   //  [self.photoView set]
     self.photoView.contentMode = UIViewContentModeTopLeft;
-    [self.photoView setImage:[self imageWithImage:img convertToSize:modSize]];
+    [self.photoView setImage:img];
     self.scrollView.minimumZoomScale = 0.5; // 0.5 means half its normal size
     self.scrollView.maximumZoomScale = 2.0; // 2.0 means twice its normal size
     self.scrollView.contentSize = self.photoView.bounds.size;
     [self.scrollView addSubview:self.photoView];
+    [self.scrollView setZoomScale:[self calculateScaleForImage:img]];
 }
 
 //If your scroll view only has one subview, you return it here. More than one? Up to you.
