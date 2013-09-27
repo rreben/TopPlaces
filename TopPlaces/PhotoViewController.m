@@ -40,7 +40,9 @@
     [self.photoView setImage:img];
     self.scrollView.minimumZoomScale = [self calculateScaleForImage:img]; // 0.5 means half its normal size
     self.scrollView.maximumZoomScale = 1.0; // 2.0 means twice its normal size
-    self.scrollView.contentSize = self.photoView.bounds.size;
+   // [scrollview setContentSize:CGSizeMake(320, 1000)];
+//    self.scrollView.contentSize = self.photoView.bounds.size;
+    self.scrollView.contentSize = img.size;
     [self.scrollView addSubview:self.photoView];
     [self.scrollView setZoomScale:[self calculateScaleForImage:img]];
 }
