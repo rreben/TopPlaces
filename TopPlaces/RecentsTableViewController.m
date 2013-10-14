@@ -29,13 +29,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.recents = [FlickrFetcher recentGeoreferencedPhotos];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIActivityIndicatorView   *aSpinner;
+    
+    //throw up spinner from submit btn we created
+    aSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
+                UIActivityIndicatorViewStyleWhiteLarge];
+    [self.tabBarController.tabBar addSubview:aSpinner];
+    //[self.view addSubview:aSpinner];
+    [aSpinner startAnimating];
+    
+    dispatch_queue_t recentsQueue = dispatch_queue_create("recents", NULL);
+    dispatch_async(recentsQueue, ^{
+        NSArray * tempArray = [FlickrFetcher recentGeoreferencedPhotos];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recents = tempArray;
+            [self.tableView reloadData];
+            [aSpinner stopAnimating];
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning

@@ -30,25 +30,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIActivityIndicatorView   *aSpinner;
+    
+    //throw up spinner from submit btn we created
+    aSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
+                UIActivityIndicatorViewStyleWhiteLarge];
+    
+    [self.tabBarController.tabBar addSubview:aSpinner];
+    [aSpinner startAnimating];
    // [self.topPlaces sortedArrayUsingComparator:<#^NSComparisonResult(id obj1, id obj2)cmptr#>]
+    dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
+    dispatch_async(downloadQueue, ^{
     self.topPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^(id obj1, id obj2){
         NSDictionary * dict1, *dict2;
         dict1 = obj1;
         dict2 = obj2;
         return [[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]];
-//        return [[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]];
-
-//        if ([[dict1 valueForKeyPath:@"woe_name"] localizedCompare:[dict2 valueForKeyPath:@"woe_name"]) {
-//            return (NSComparisonResult)NSOrderedDescending;
-//        }
-//        
-//        if ([dict1 valueForKeyPath:@"woe_name"] < [dict2 valueForKeyPath:@"woe_name"]) {
-//            return (NSComparisonResult)NSOrderedAscending;
-//        }
-//        
-//        return (NSComparisonResult)NSOrderedSame;
+        [aSpinner stopAnimating];
     }];
-
+    });
+ //   dispatch_release(downloadQueue);
     
     //[self.tableView setDelegate:self];
 
