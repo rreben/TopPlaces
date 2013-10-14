@@ -32,14 +32,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setTitle:[self.place valueForKeyPath:@"woe_name"]];
-    self.photos = [FlickrFetcher photosInPlace:self.place maxResults:_maxResults];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIActivityIndicatorView   *aSpinner;
+    
+    //throw up spinner from submit btn we created
+    aSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
+                UIActivityIndicatorViewStyleWhiteLarge];
+    
+    [self.tabBarController.tabBar addSubview:aSpinner];
+    [aSpinner startAnimating];
+    // [self.topPlaces sortedArrayUsingComparator:<#^NSComparisonResult(id obj1, id obj2)cmptr#>]
+    dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        
+        NSArray * tempArray = [FlickrFetcher photosInPlace:self.place maxResults:_maxResults];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setTitle:[self.place valueForKeyPath:@"woe_name"]];
+            self.photos = tempArray;
+            [self.tableView reloadData];
+            [aSpinner stopAnimating];
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning
