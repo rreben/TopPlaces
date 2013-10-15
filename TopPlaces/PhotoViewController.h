@@ -11,5 +11,6 @@
 @interface PhotoViewController : UIViewController
 @property NSDictionary * photo;
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
+@property (weak, nonatomic) IBOutlet UILabel *waitLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end

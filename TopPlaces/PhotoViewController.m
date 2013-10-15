@@ -17,6 +17,7 @@
 @synthesize photo = _photo;
 @synthesize photoView = _photoView;
 @synthesize scrollView = _scrollView;
+@synthesize waitLabel = _waitLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,15 +59,15 @@
     UIActivityIndicatorView   *aSpinner;
     aSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
                 UIActivityIndicatorViewStyleWhiteLarge];
-//    [self.tabBarController.tabBar addSubview:aSpinner];
-    //[self.view addSubview:aSpinner];
-//    [aSpinner startAnimating];
+    [aSpinner startAnimating];
+    [self.waitLabel addSubview:aSpinner];
     
     dispatch_queue_t recentsQueue = dispatch_queue_create("fetchFoto", NULL);
     dispatch_async(recentsQueue, ^{
         img = [self fetchImageFromFlickr];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self showImageInView:img];
+            [aSpinner stopAnimating];
         });
     });
 }

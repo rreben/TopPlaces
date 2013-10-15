@@ -102,6 +102,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucK-Ds-5iC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="569"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wait" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhT-5h-whT">
+                                <rect key="frame" x="132" y="262" width="74" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <connections>
                             <outlet property="delegate" destination="MZW-4f-TpG" id="6vg-lo-lnf"/>
@@ -112,6 +118,7 @@
                         <outlet property="photoView" destination="ucK-Ds-5iC" id="uKV-Fk-3Pq"/>
                         <outlet property="scrollView" destination="R1c-bc-ehg" id="CSQ-ap-6Nh"/>
                         <outlet property="view" destination="R1c-bc-ehg" id="Rns-gt-mQG"/>
+                        <outlet property="waitLabel" destination="WhT-5h-whT" id="6aN-4x-1qy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wB-BO-awO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,6 +202,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cfm-xN-JD3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="569"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozO-AI-LOV">
+                                <rect key="frame" x="140" y="258" width="83" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <connections>
                             <outlet property="delegate" destination="jEb-mj-fed" id="5Rd-aV-Djr"/>
@@ -205,6 +218,7 @@
                         <outlet property="photoView" destination="Cfm-xN-JD3" id="IId-zD-GMQ"/>
                         <outlet property="scrollView" destination="EsC-ZR-4ow" id="t1l-qp-453"/>
                         <outlet property="view" destination="EsC-ZR-4ow" id="q8L-5b-uX4"/>
+                        <outlet property="waitLabel" destination="ozO-AI-LOV" id="Vb9-f6-Mnc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEC-hb-g2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
