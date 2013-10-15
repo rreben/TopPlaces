@@ -27,24 +27,36 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (UIImage *)fetchImageFromFlickr
 {
-    [super viewDidLoad];
-	NSURL * urlForPhoto = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatOriginal];
-//    UIImage * img = [[UIImage alloc] imageWithData:[NSData dataWithContentsOfURL:urlForPhoto]];
+    NSURL * urlForPhoto = [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatOriginal];
+    //    UIImage * img = [[UIImage alloc] imageWithData:[NSData dataWithContentsOfURL:urlForPhoto]];
     UIImage * img = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlForPhoto]];
-//    NSLog(@"scale: %f",[self calculateScaleForImage:img]);
-//    [self.photoView setImage:img];
-  //  [self.photoView set]
+    return img;
+}
+
+- (void)showImageInView:(UIImage *)img
+{
+    //    NSLog(@"scale: %f",[self calculateScaleForImage:img]);
+    //    [self.photoView setImage:img];
+    //  [self.photoView set]
     self.photoView.contentMode = UIViewContentModeTopLeft;
     [self.photoView setImage:img];
     self.scrollView.minimumZoomScale = [self calculateScaleForImage:img]; // 0.5 means half its normal size
     self.scrollView.maximumZoomScale = 1.0; // 2.0 means twice its normal size
-   // [scrollview setContentSize:CGSizeMake(320, 1000)];
-//    self.scrollView.contentSize = self.photoView.bounds.size;
+    // [scrollview setContentSize:CGSizeMake(320, 1000)];
+    //    self.scrollView.contentSize = self.photoView.bounds.size;
     self.scrollView.contentSize = img.size;
     [self.scrollView addSubview:self.photoView];
     [self.scrollView setZoomScale:[self calculateScaleForImage:img]];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	UIImage *img;
+    img = [self fetchImageFromFlickr];
+    [self showImageInView:img];
 }
 
 //If your scroll view only has one subview, you return it here. More than one? Up to you.
