@@ -54,9 +54,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	UIImage *img;
-    img = [self fetchImageFromFlickr];
-    [self showImageInView:img];
+	__block UIImage *img;
+    UIActivityIndicatorView   *aSpinner;
+    aSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
+                UIActivityIndicatorViewStyleWhiteLarge];
+//    [self.tabBarController.tabBar addSubview:aSpinner];
+    //[self.view addSubview:aSpinner];
+//    [aSpinner startAnimating];
+    
+    dispatch_queue_t recentsQueue = dispatch_queue_create("fetchFoto", NULL);
+    dispatch_async(recentsQueue, ^{
+        img = [self fetchImageFromFlickr];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self showImageInView:img];
+        });
+    });
 }
 
 //If your scroll view only has one subview, you return it here. More than one? Up to you.
