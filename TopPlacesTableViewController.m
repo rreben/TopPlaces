@@ -39,7 +39,7 @@
     [self.tabBarController.tabBar addSubview:aSpinner];
     [aSpinner startAnimating];
    // [self.topPlaces sortedArrayUsingComparator:<#^NSComparisonResult(id obj1, id obj2)cmptr#>]
-    dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
+    dispatch_queue_t downloadQueue = dispatch_queue_create("top places", NULL);
     dispatch_async(downloadQueue, ^{
     self.topPlaces = [[FlickrFetcher topPlaces] sortedArrayUsingComparator:^(id obj1, id obj2){
         NSDictionary * dict1, *dict2;
